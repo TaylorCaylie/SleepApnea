@@ -6,8 +6,8 @@
         <meta name="description" content="AI Platform to Monitor Heart Health">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="patient_dashboard_style.css">
         <title>Patient Portal</title>
     </head>
     <body>
@@ -15,12 +15,66 @@
             <nav>
                 <ul class="nav__links">
                     <li><a href="home.html">Home</a></li>
-                    <li><a href="patient.html">Patient</a></li>
+                    <li><a href="patient.html" class="activePage">Patient</a></li>
                     <li><a href="physician.html">Physician</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             <a href="signup.html">Sign Up</a>
         </header>
+
+        <h1> My Reports </h1>
+
+        <table id="myreports_table">
+            <!-- tr defines a row of cells. Each cell can represent a report-->
+            <!-- This first one = table header, which is defined by th= table header (i think) -->
+            <tr> 
+                <th>Date</th>
+                <th>Time</th>
+                <th>Detected Arrhythmias</th>
+                <th>Heart Rate</th>
+                <th>View/Edit Symptoms</th>
+                <th>View Report</th>
+                <th>Email Report</th>
+                <th>Download Report</th>
+            </tr>
+            <!-- The following lines (42 to 73) are just to visualize it, fake data-->
+            <tr>
+                <td>01/01/2021</td>
+                <td>4:03 PM</td>
+                <td>None</td>
+                <td>42 BPM</td>
+                <td>Bradycardia</td>
+                <td>Click to view</td>
+                <td>Click to email</td>
+                <td>Download now</td>
+            </tr>
+
+            <tr>
+                <td>05/11/2021</td>
+                <td>7:56 AM</td>
+                <td>None</td>
+                <td>70 BPM</td>
+                <td>None</td>
+                <td>Click to view</td>
+                <td>Click to email</td>
+                <td>Download now</td>
+            </tr>
+
+            <tr>
+                <td>07/20/2021</td>
+                <td>8:05 AM</td>
+                <td>None</td>
+                <td>60 BPM</td>
+                <td>Atrial Fibrillation</td>
+                <td>Click to view</td>
+                <td>Click to email</td>
+                <td>Download now</td>
+            </tr>
+
+        </table>
+
+
+
     </body>
 </html>
