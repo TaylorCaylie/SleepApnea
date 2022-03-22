@@ -18,7 +18,7 @@ func main() {
 		log.Fatalf("Failed to initialize the authenticator: %v", err)
 	}
 
-	rtr := router.New(auth)
+	rtr := NewRouter(auth)
 
 	log.Print("Server listening on http://localhost:3000/")
 	if err := http.ListenAndServe("0.0.0.0:3000", rtr); err != nil {
