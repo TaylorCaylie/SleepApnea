@@ -19,7 +19,7 @@ func NewRouter(auth *Authenticator) *gin.Engine {
 	store := cookie.NewStore([]byte("secret"))
 	router.Use(sessions.Sessions("auth-session", store))
 
-	router.Static("/public", "web/static")
+	router.Static("/public", "static")
 	router.LoadHTMLGlob("templates/*")
 
 	router.GET("/", HomeHandler)
