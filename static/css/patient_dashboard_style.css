@@ -78,7 +78,54 @@ h1{
 
 }
 
-.nav__links a.activePage:hover{
+/* BEGIN PATS CODE*/
+#phys_table
+{
+    font-family: 'Open Sans Condensed', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+#phys_table th, #phys_table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#phys_table th
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #860909;
+    color: white;
+
+}
+
+#phys_table th:first-child
+{
+    border-radius:10px 0 0 10px;
+}
+  
+#phys_table th:last-child
+{
+    border-radius:0 10px 10px 0;
+}
+
+#phys_table tbody a
+{
+    font-family: 'Open Sans Condensed', sans-serif;
+
+      font-size: medium;
+}
+
+
+
+/* END PATS CODE*/
+
+
+.nav__links a.activePage:hover
+{
     color: black;
 }
 

@@ -1,3 +1,20 @@
+footer .footer-down
+{
+    background-color: #6C0808;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 0.5rem;
+    text-align: center;
+    color:  white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
 /*Styling for navbar*/
 li, a {
      font-family: 'Open Sans Condensed', sans-serif;
@@ -8,13 +25,21 @@ li, a {
  }
  
  header {
-          display: flex;
+     display: flex;
      justify-content: space-between;
      align-items: center;
+     background-color: white;
      padding: 15px 10%;
      box-shadow: 0px 3px 15px rgb(100,100,100);
  }
  
+
+
+
+
+
+
+
  .nav__links {
      list-style: none;
  }
@@ -29,8 +54,24 @@ li, a {
  }
  
  .nav__links li a:hover{
-     color: rgb(219, 122, 122)
+     color: rgb(219, 122, 122);
  }
+
+/* This references the active page, to highlight the current tab */
+.nav__links a.activePage
+{
+    display:block;
+    width: 110px;
+    
+    color: rgb(0, 0, 0);
+    
+
+    background-image: linear-gradient(to right, rgb(228, 129, 129), white);
+
+}
+
+
+
  
  /*Styling for home banner*/
  
