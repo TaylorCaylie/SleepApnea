@@ -1,3 +1,18 @@
+footer .footer-down
+{
+    background-color: #6C0808;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 0.5rem;
+    text-align: center;
+    color:  white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
 li, a {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 500;
@@ -102,26 +117,12 @@ h1{
 
 }
 
-#phys_table th:first-child
-{
-    border-radius:10px 0 0 10px;
-}
-  
-#phys_table th:last-child
-{
-    border-radius:0 10px 10px 0;
-}
 
-#phys_table tbody a
-{
-    font-family: 'Open Sans Condensed', sans-serif;
-
-      font-size: medium;
-}
 
 
 
 /* END PATS CODE*/
+
 
 
 .nav__links a.activePage:hover
