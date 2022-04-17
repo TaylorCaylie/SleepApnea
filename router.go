@@ -9,6 +9,7 @@ import (
 )
 
 // NewRouter registers the routes and returns the router.
+// The router defined the build of the application
 func NewRouter(auth *Authenticator) *gin.Engine {
 	router := gin.Default()
 
@@ -19,7 +20,9 @@ func NewRouter(auth *Authenticator) *gin.Engine {
 	store := cookie.NewStore([]byte("secret"))
 	router.Use(sessions.Sessions("auth-session", store))
 
-	router.Static("/public", "static")
+	router.Static("/public", "/static/css")
+
+	// load all the templates
 	router.LoadHTMLGlob("templates/*")
 
 	router.GET("/", HomeHandler)
