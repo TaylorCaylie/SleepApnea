@@ -28,18 +28,15 @@ header {
 }
 
 .nav__links li a:hover{
-    color: aquamarine
+    color: rgb(219, 122, 122)
 }
 
 /* This references the active page, to highlight the current tab */
 .nav__links a.activePage{
     display:block;
-    width: 110px;
-    
-    color: rgb(0, 0, 0);
-    
-
-    background-image: linear-gradient(to right, rgb(228, 129, 129), white);
+    color: rgb(219, 122, 122);
+    border-bottom: 5px solid rgb(219, 122, 122);
+    text-align: center;
 
 }
 
