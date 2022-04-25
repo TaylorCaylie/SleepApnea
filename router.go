@@ -20,7 +20,7 @@ func NewRouter(auth *Authenticator) *gin.Engine {
 	store := cookie.NewStore([]byte("secret"))
 	router.Use(sessions.Sessions("auth-session", store))
 
-	router.Static("/public", "/static/css")
+	router.Static("/static", "./static")
 
 	// load all the templates
 	router.LoadHTMLGlob("templates/*")
@@ -30,8 +30,10 @@ func NewRouter(auth *Authenticator) *gin.Engine {
 	router.GET("/callback", CallbackHandler(auth))
 	// TODO: seperate this based on role of user
 	// doctor or patient
-	router.GET("/user", IsAuthenticated, UserHandler)
+	router.GET("/patient", IsAuthenticated, PatientHandler)
+	router.GET("/doctor", IsAuthenticated, DoctorHandler)
 	router.GET("/logout", LogoutHandler)
+	router.GET("/contact", ContactHandler)
 
 	return router
 }

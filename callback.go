@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-contrib/sessions"
@@ -19,6 +20,8 @@ func CallbackHandler(auth *Authenticator) gin.HandlerFunc {
 		// Exchange an authorization code for a token.
 		token, err := auth.Exchange(ctx.Request.Context(), ctx.Query("code"))
 		if err != nil {
+			fmt.Println(err)
+			
 			ctx.String(http.StatusUnauthorized, "Failed to convert an authorization code into a token.")
 			return
 		}

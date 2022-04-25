@@ -15,7 +15,7 @@ RUN go mod download
 # Add sources
 COPY . .
 
-# Expose port 3010 for our api binary
+# Expose port 3000 for our binary
 EXPOSE 3000
 
 CMD ["go", "run", "main.go"]
