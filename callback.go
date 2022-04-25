@@ -21,7 +21,7 @@ func CallbackHandler(auth *Authenticator) gin.HandlerFunc {
 		token, err := auth.Exchange(ctx.Request.Context(), ctx.Query("code"))
 		if err != nil {
 			fmt.Println(err)
-			
+
 			ctx.String(http.StatusUnauthorized, "Failed to convert an authorization code into a token.")
 			return
 		}
@@ -46,6 +46,6 @@ func CallbackHandler(auth *Authenticator) gin.HandlerFunc {
 		}
 
 		// Redirect to logged in page.
-		ctx.Redirect(http.StatusTemporaryRedirect, "/user")
+		ctx.Redirect(http.StatusTemporaryRedirect, "/patient")
 	}
 }
