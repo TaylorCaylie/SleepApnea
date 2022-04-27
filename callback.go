@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"net/http"
 
@@ -39,13 +40,62 @@ func CallbackHandler(auth *Authenticator) gin.HandlerFunc {
 		}
 
 		session.Set("access_token", token.AccessToken)
+
 		session.Set("profile", profile)
+
 		if err := session.Save(); err != nil {
 			ctx.String(http.StatusInternalServerError, err.Error())
 			return
 		}
 
-		// Redirect to logged in page.
-		ctx.Redirect(http.StatusTemporaryRedirect, "/patient")
+		// connection string
+		psqlconn := fmt.Sprintf("host=%s port=%d user=%s "+
+			"password=%s dbname=%s sslmode=disable",
+			host, port, user, password, dbname)
+
+		// open database
+		db, err := sql.Open("postgres", psqlconn)
+		if err != nil {
+			panic(err)
+		}
+
+		username := profile["nickname"]
+
+		session.Set("username", username)
+
+		rows, err := db.Query("SELECT * FROM patient WHERE idpatient=$1", username)
+		if err != nil {
+			panic(err)
+		}
+
+		count := 0
+		for rows.Next() {
+			count += 1
+		}
+
+		if count == 0 {
+			rows, err = db.Query("SELECT * FROM doctor WHERE iddoctor=$1", username)
+			if err != nil {
+				panic(err)
+			}
+
+			count := 0
+			for rows.Next() {
+				count += 1
+			}
+
+			// the user is not a doctor or patient in the
+			// db and needs to be added
+			if count == 0 {
+				panic("not a doctor or patient, needs to be implemented")
+			}
+
+			// Redirect to logged in page based on patient or doctor query
+			ctx.Redirect(http.StatusTemporaryRedirect, "/doctor")
+
+		} else {
+			// Redirect to logged in page based on patient or doctor query
+			ctx.Redirect(http.StatusTemporaryRedirect, "/patient")
+		}
 	}
 }

@@ -28,8 +28,8 @@ func NewRouter(auth *Authenticator) *gin.Engine {
 	router.GET("/", HomeHandler)
 	router.GET("/login", LoginHandler(auth))
 	router.GET("/callback", CallbackHandler(auth))
-	router.GET("/patient", IsAuthenticated, PatientHandler)
-	router.GET("/doctor", IsAuthenticated, DoctorHandler)
+	router.GET("/patient", IsAuthenticated, UserHandler)
+	router.GET("/doctor", IsAuthenticated, UserHandler)
 	router.GET("/logout", LogoutHandler)
 	router.GET("/contact", ContactHandler)
 
