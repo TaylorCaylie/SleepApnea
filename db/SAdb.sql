@@ -16,6 +16,7 @@ CREATE TABLE doctor (
 
 INSERT INTO Doctor (idDoctor, FirstName, LastName, Clinic, Email) VALUES ('1', 'Rodger', 'Kohl', 'Plano Cardiologist', 'DrKohl@PlanoC.com');
 INSERT INTO Doctor (idDoctor, FirstName, LastName, Clinic, Email) VALUES ('2', 'V', 'Lal', 'SouthLake Cardiologists', 'DrLal@southlakeC.com');
+INSERT INTO `SAdb`.`Doctor` (`idDoctor`, `FirstName`, `LastName`, `Clinic`, `Email`) VALUES ('3', 'Luca', 'DeJesu', 'SouthLake Cardiologists', 'lucadejesu@gmail.com');
 
 
 CREATE TABLE Patient (
