@@ -18,6 +18,8 @@ func UserHandler(ctx *gin.Context) {
 
 	username := prof["nickname"]
 
+	ctx.Writer.Header().Set("username", fmt.Sprintf("%v", username))
+
 	// connection string
 	psqlconn := fmt.Sprintf("host=%s port=%d user=%s "+
 		"password=%s dbname=%s sslmode=disable",
@@ -58,9 +60,9 @@ func UserHandler(ctx *gin.Context) {
 		}
 
 		// Redirect to logged in page based on patient or doctor query
-		ctx.HTML(http.StatusOK, "doctor.html", nil)
+		ctx.HTML(http.StatusOK, "doctor.php", nil)
 	} else {
 		// Redirect to logged in page based on patient or doctor query
-		ctx.HTML(http.StatusOK, "patient.html", nil)
+		ctx.HTML(http.StatusOK, "patient.php", nil)
 	}
 }

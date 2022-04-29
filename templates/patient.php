@@ -10,11 +10,7 @@ include_once("connect_db.php");
     <head>
     <!-- Include jQuery script to make edits to the table-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-
-
-
-
-        <meta charset="UTF-8">
+<meta charset="UTF-8">
         <meta name="description" content="AI Platform to Monitor Heart Health">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,13 +22,13 @@ include_once("connect_db.php");
         <header>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="patient.php" class="activePage">Patient</a></li>
-                    <li><a href="physician.php">Physician</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/patient" class="activePage">Patient</a></li>
+                    <li><a href="/doctor">Physician</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="base.php">Sign Up</a>
+            <a href="/signin">Sign Up</a>
         </header>
 
         <h1> My Reports </h1>
@@ -56,21 +52,13 @@ include_once("connect_db.php");
 
             <form action="insert.php" method="post" id="symptoms_form"></form>
 
-
-         
-           
-
-
-
-
             <?php
-            // DATABASE OPERATIONS HERE
-            // auht0 connection flow: User signs in, gets their token. Use the sub-claim for that token, add it to the patient database, and then retreive the user id (that Pat made) from that patient,
-            // and then display the reports based on what user id is logged in.
+            $url = "http://localhost:3000/patient";
+            // $username = get_headers($url);
+            $username = $_SERVER['username']
+            ?>
             
-            // GOES HERE
-
-            // Read all the rows from the database table
+            <?php
             $sql = "SELECT * FROM Report"; // CHANGE REPORTS HERE
             $result = $connection->query($sql);
 
@@ -101,12 +89,6 @@ include_once("connect_db.php");
                 <td>Download now</td>
               
                 </tr>";
-
-
-
-    
-
-
             }
            
             

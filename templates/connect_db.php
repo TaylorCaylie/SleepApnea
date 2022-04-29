@@ -7,8 +7,7 @@
 	$database = "SAdb";
 
 	// Create the connection with the database:
-	$connection = new mysqli($servername, $username, $password, $database);
-
+	$connection = pg_connect("host=localhost port=5432 dbname=SAdb user=grassroots password=Horses777");
 	// Double check that the connection is working - if not, die
 	if ($connection->connect_error)
 	{

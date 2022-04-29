@@ -26,13 +26,13 @@ include_once("connect_db.php");
         <header>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="patient.php" class="activePage">Patient</a></li>
-                    <li><a href="physician.php">Physician</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/patient" class="activePage">Patient</a></li>
+                    <li><a href="/doctor">Physician</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="base.php">Sign Up</a>
+            <a href="/signin">Sign Up</a>
         </header>
 
         <h1> My Reports </h1>
