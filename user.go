@@ -60,7 +60,7 @@ func UserHandler(ctx *gin.Context) {
 		}
 
 		// Redirect to logged in page based on patient or doctor query
-		ctx.HTML(http.StatusOK, "doctor.php", nil)
+		ctx.HTML(http.StatusOK, "physician.php", nil)
 	} else {
 		// Redirect to logged in page based on patient or doctor query
 		ctx.HTML(http.StatusOK, "patient.php", nil)
