@@ -27,8 +27,8 @@ include_once("connect_db.php");
             <nav>
                 <ul class="nav__links">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/patient" class="activePage">Patient</a></li>
-                    <li><a href="/doctor">Physician</a></li>
+                    <li><a href="/patient">Patient</a></li>
+                    <li><a href="/doctor" class="activePage">Physician</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>

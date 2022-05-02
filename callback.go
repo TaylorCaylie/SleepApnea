@@ -87,7 +87,7 @@ func CallbackHandler(auth *Authenticator) gin.HandlerFunc {
 			// the user is not a doctor or patient in the
 			// db and needs to be added
 			if count == 0 {
-				panic("not a doctor or patient, needs to be implemented")
+				ctx.Redirect(http.StatusTemporaryRedirect, "/")
 			}
 
 			// Redirect to logged in page based on patient or doctor query
