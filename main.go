@@ -13,8 +13,8 @@ import (
 const (
 	host     = "localhost"
 	port     = 5432
-	user     = "grassroots"
-	password = "Horses777"
+	user     = "luca"
+	password = "bubblebutt"
 	dbname   = "SAdb"
 )
 
@@ -29,6 +29,8 @@ func main() {
 		host, port, user, password, dbname)
 
 	// open database
+	// "postgres" refers to the database driver name
+	// psqlconn is the connection string for the driver-specific data source name
 	db, err := sql.Open("postgres", psqlconn)
 	if err != nil {
 		panic(err)

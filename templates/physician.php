@@ -26,19 +26,19 @@ include_once("connect_db.php");
         <header>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/patient">Patient</a></li>
-                    <li><a href="/doctor" class="activePage">Physician</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="patient.php" class="activePage">Patient</a></li>
+                    <li><a href="physician.php">Physician</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
-            <a href="/signin">Sign Up</a>
+            <a href="base.php">Sign Up</a>
         </header>
 
         <h1> My Reports </h1>
 
         <table id="phys_table">
-            <!-- tr defines a row of cells. Each cell can represent a report-->
+            <!-- tr defines a row of cells.-->
             <!-- This first one = table header, which is defined by th= table header (i think) -->
             <tr> 
             <th>Patient</th>
@@ -99,9 +99,9 @@ include_once("connect_db.php");
                 <td>" . $row["HeartRate"] . "</td> 
                 <td>" . $row["Symptoms"] . "</td> 
                 <td><a href=#>View Report </a></td>
-                <td><a href=#>No </a></td>"
+                <td><a href=#>No </a></td>";
 
-
+            }
 
                 
                 ?>
@@ -113,7 +113,7 @@ include_once("connect_db.php");
         </table>
 
         <a href="insert.php">
-   <input type="button" value="Insert New Record" />
+<input type="button" value="Insert New Record" />
    </a>
    
     
