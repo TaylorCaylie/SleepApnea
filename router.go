@@ -29,7 +29,7 @@ func NewRouter(auth *Authenticator) *gin.Engine {
 	router.GET("/login", LoginHandler(auth))
 	router.GET("/callback", CallbackHandler(auth))
 	router.GET("/patient", IsAuthenticated, UserHandler)
-	router.GET("/doctor", IsAuthenticated, UserHandler)
+	router.GET("/doctor", IsAuthenticated, DocHandler) // Start here, which calls DocHandler, within home.go.
 	router.GET("/logout", LogoutHandler)
 	router.GET("/contact", ContactHandler)
 

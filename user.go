@@ -9,6 +9,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type patientData struct {
+	Date            string
+	Time            string
+	Autodetected    string
+	Heartrate       float64
+	Symptoms        string
+	NumberOfEpisode float64
+}
+
 // PatientHandler for our logged-in user page.
 func UserHandler(ctx *gin.Context) {
 	session := sessions.Default(ctx)
@@ -41,15 +50,17 @@ func UserHandler(ctx *gin.Context) {
 		count += 1
 	}
 
+	var data []patientData
 	if count == 0 {
 		rows, err = db.Query("SELECT * FROM doctor WHERE iddoctor=$1", username)
 		if err != nil {
-			panic(err)
+			ctx.HTML(http.StatusOK, "home.html", nil)
+			return
 		}
 
-		count := 0
-		for rows.Next() {
-			count += 1
+		if err == sql.ErrNoRows {
+			ctx.HTML(http.StatusOK, "home.html", nil)
+			return
 		}
 
 		// the user is not a doctor or patient in the
@@ -59,10 +70,26 @@ func UserHandler(ctx *gin.Context) {
 			return
 		}
 
-		// Redirect to logged in page based on patient or doctor query
-		ctx.HTML(http.StatusOK, "physician.php", nil)
+		// expose the data retrieved from the database so that js can retrieve it
+		ctx.JSON(http.StatusOK, data)
 	} else {
-		// Redirect to logged in page based on patient or doctor query
-		ctx.HTML(http.StatusOK, "patient.php", nil)
+		// if the user is a patient then retrieve their symptom
+		// data to be retrieved by js for their personalized portal
+		count := 0
+		for rows.Next() {
+			count += 1
+
+			var d patientData
+
+			if err := rows.Scan(d.Heartrate, d.Symptoms, d.Autodetected, d.NumberOfEpisode); err != nil {
+				ctx.HTML(http.StatusOK, "home.html", nil)
+				return
+			}
+
+			data = append(data, d)
+		}
+
+		// expose the data retrieved from the database so that js can retrieve it
+		ctx.JSON(http.StatusOK, data)
 	}
 }
