@@ -41,8 +41,12 @@ func main() {
 
 	// check db
 	err = db.Ping()
+
+
 	if err != nil {
+		log.Print("Error opening the db connection")
 		panic(err)
+		
 	}
 
 	auth, err := NewAuthenticator()
